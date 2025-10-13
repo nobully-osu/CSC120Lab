@@ -1,0 +1,2 @@
+public class LabProgram727 {
+}
