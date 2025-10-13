@@ -1,3 +1,5 @@
+package Module6;
+
 import java.util.Scanner;
 
 public class LabProgram626 {
