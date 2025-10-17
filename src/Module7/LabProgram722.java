@@ -42,23 +42,34 @@ public class LabProgram722 {
                     colCounts = Arrays.copyOf(colCounts, parts.length);
                 }
 
-                for (int i = 0; i < parts.length; i++){
+                // input column values and update counts, must skip 2 to start at correct index
+                for (int i = 2; i < parts.length; i++){
                     try {
-                        double value = Double.parseDouble(line);
-                        colSums[i] += value;
-                        colCounts[i]++;
+                        double value = Double.parseDouble(parts[i]);
+                        colSums[i - 2] += value;
+                        colCounts[i - 2]++;
                     } catch (NumberFormatException ignored) {}
                 }
             }
+
             // append new line and output column averages line after
-            StringBuilder averages = new StringBuilder("Averages:");
-            for (int i = 0; i < colSums.length; i++) {
+            StringBuilder averages = new StringBuilder("Averages:"); // start with string "Averages:" and append necessary info
+            // we need to stop at "length - 2" because we want to skip the empty values
+            for (int i = 0; i < colSums.length - 2; i++) {
                 double avg = (colCounts[i] > 0) ? (colSums[i] / colCounts[i]) : 0.0;
-                averages.append(" ").append(String.format("%.2f", avg));
+                // same here, but offset by 3 instead of the typical 1
+                if (i != colSums.length - 3) {
+                    String midtermNumber = "Midterm" + (i + 1);
+                    averages.append(" ").append(midtermNumber).append(" ").append(String.format("%.2f", avg)).append(",");
+                } else {
+                    averages.append(" ").append("Final ").append(String.format("%.2f", avg));
+                }
             }
 
+            // write to file
             bufferWrite.newLine();
             bufferWrite.write(String.valueOf(averages));
+            bufferWrite.newLine();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -97,8 +108,8 @@ public class LabProgram722 {
     public static char avgToLetterGrade(double avg) {
         if (avg >= 90) return 'A';
         else if (avg >= 80) return 'B';
-        else if (avg >= 70) return 'D';
-        else if (avg >= 60) return 'C';
+        else if (avg >= 70) return 'C';
+        else if (avg >= 60) return 'D';
         else return 'F';
     }
 }
