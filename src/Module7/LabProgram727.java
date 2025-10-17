@@ -9,7 +9,21 @@ public class LabProgram727 {
         int index;
 
         index = scnr.nextInt();
-        /* Type your code here. */
+
+        try {
+            System.out.println("Name: " + names[index]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            if (index < 0) {
+                System.out.printf("""
+                        Exception! Index %d out of bounds for length %d
+                        The closest name is: %s
+                        """, index, names.length, names[0]);
+            } else if (index > 9) {
+                System.out.printf("""
+                        Exception! Index %d out of bounds for length %d
+                        The closest name is: %s
+                        """, index, names.length, names[9]);
+            }
+        }
     }
 }
-
