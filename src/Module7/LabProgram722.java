@@ -49,14 +49,14 @@ public class LabProgram722 {
                         colCounts[i]++;
                     } catch (NumberFormatException ignored) {}
                 }
-
-                StringBuilder averages = new StringBuilder("Averages:");
-                for (int i = 0; i < colSums.length; i++) {
-                    double avg = (colCounts[i] > 0) ? (colSums[i] / colCounts[i]) : 0.0;
-                    averages.append(" ").append(String.format("%.2f", avg));
-                }
             }
             // append new line and output column averages line after
+            StringBuilder averages = new StringBuilder("Averages:");
+            for (int i = 0; i < colSums.length; i++) {
+                double avg = (colCounts[i] > 0) ? (colSums[i] / colCounts[i]) : 0.0;
+                averages.append(" ").append(String.format("%.2f", avg));
+            }
+
             bufferWrite.newLine();
             bufferWrite.write(String.valueOf(averages));
 
