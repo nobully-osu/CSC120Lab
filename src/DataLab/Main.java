@@ -7,7 +7,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 		Scanner console = new Scanner(System.in);
-        ArrayList<Cereal> allCereal = new ArrayList<Cereal>();
+        ArrayList<Cereal> allCereal = new ArrayList<>();
         
         String userCereal1 = "";
         String userCereal2 = "";
