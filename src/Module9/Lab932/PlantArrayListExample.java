@@ -2,29 +2,63 @@ package Module9.Lab932;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class PlantArrayListExample {
+    public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        String input = "";
+        // declare plant arraylist
+        ArrayList<Plant> myGarden = new ArrayList<>();
 
-   // TODO: Define a printArrayList method that prints an ArrayList of plant (or flower) objects                                                       
-   
-   public static void main(String[] args) {
-      Scanner scnr = new Scanner(System.in);
-      String input;
-      // TODO: Declare an ArrayList called myGarden that can hold object of type plant
+        // user input loop
+        // get user input, split at every " ", store in a temporary array and add to the ArrayList
+        // check for type by checking first array value string
+        while (true) {
+            // get user input from console
+            input = console.nextLine().trim();
 
-      // TODO: Declare variables - plantName, plantCost, flowerName, flowerCost, colorOfFlowers, isAnnual
-      
-      input = scnr.next();
-      while(!input.equals("-1")){
-         // TODO: Check if input is a plant or flower
-         //       Store as a plant object or flower object
-         //       Add to the ArrayList myGarden
-      
-         input = scnr.next();
-      }
-      
-      // TODO: Call the method printArrayList to print myGarden
-      
-   }
+            // break at sentinel value
+            if (input.equals("-1")) break;
+
+            String[] parts = input.split(" ");
+            if (parts[0].equals("plant")) {
+                String plantName = parts[1];
+                String plantCost = parts[2];
+
+                Plant plant = new Plant();
+                plant.setPlantName(plantName);
+                plant.setPlantCost(plantCost);
+
+                myGarden.add(plant);
+            } else {
+                String flowerName = parts[1];
+                String flowerCost = parts[2];
+                boolean isAnnualBoolean = parts[3].equals("true");
+                String colorOfFlowers = parts[4];
+
+                Flower flower = new Flower();
+                flower.setPlantName(flowerName);
+                flower.setPlantCost(flowerCost);
+                flower.setPlantType(isAnnualBoolean);
+                flower.setColorOfFlowers(colorOfFlowers);
+
+                myGarden.add(flower);
+            }
+        }
+
+        // print ArrayList
+        printArrayList(myGarden);
+
+    }
+
+    public static void printArrayList(ArrayList<Plant> inputArrayList) {
+        for (int i = 0; i < inputArrayList.size(); i++) {
+            Plant plant = inputArrayList.get(i);
+            int n = i + 1;
+
+            System.out.printf("Plant %d Information: \n", n);
+            plant.printInfo();
+            System.out.print("\n");
+        }
+    }
 }
