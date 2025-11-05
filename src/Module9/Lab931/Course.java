@@ -1,15 +1,32 @@
 package Module9.Lab931;
 
 public class Course {
-    // TODO: Declare private fields
+    // private fields
+    protected String courseNumber;
+    protected String courseTitle;
 
-    // TODO: Define mutator methods -
-    //       setCourseNumber(), setCourseTitle()
+    // mutator methods
+    public void setCourseNumber(String userCourseNumber) {
+        courseNumber = userCourseNumber;
+    }
 
+    public void setCourseTitle(String userCourseTitle) {
+        courseTitle = userCourseTitle;
+    }
 
-    // TODO: Define accessor methods -
-    //       getCourseNumber(), getCourseTitle()
+    // accessor methods
+    public String getCourseNumber() {
+        return courseNumber;
+    }
 
-    // TODO: Define printInfo()
+    public String getCourseTitle() {
+        return courseTitle;
+    }
 
+    // printInfo method
+    public void printInfo() {
+        System.out.println("Course Information:");
+        System.out.println("   Course Number: " + courseNumber);
+        System.out.println("   Course Title: " + courseTitle);
+    }
 }

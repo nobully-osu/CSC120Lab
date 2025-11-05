@@ -1,13 +1,34 @@
 package Module9.Lab931;
 
 public class OfferedCourse extends Course {
-    // TODO: Declare private fields
+    // private fields
+    protected String instructorName;
+    protected String location;
+    protected String classTime;
 
-    // TODO: Define mutator methods -
-    //      setInstructorName(), setLocation(), setClassTime()
+    // mutator methods
+    public void setInstructorName(String userInstructorName) {
+        instructorName = userInstructorName;
+    }
 
+    public void setLocation(String userLocation) {
+        location = userLocation;
+    }
 
-    // TODO: Define accessor methods -
-    //      getInstructorName(), getLocation(), getClassTime()
+    public void setClassTime(String userClassTime) {
+        classTime = userClassTime;
+    }
 
+    // accessor methods
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getClassTime() {
+        return classTime;
+    }
 }
