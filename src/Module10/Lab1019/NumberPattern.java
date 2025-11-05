@@ -3,7 +3,15 @@ package Module10.Lab1019;
 import java.util.Scanner;
 
 public class NumberPattern {
-    // TODO: Write recursive printNumPattern() method
+    public static void printNumPattern(int i, int j) {
+        System.out.print(i + " ");
+
+        if (i < 0) return;
+
+        printNumPattern(i - j, j);
+
+        System.out.print(i + " ");
+    }
 
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
@@ -12,6 +20,6 @@ public class NumberPattern {
 
         num1 = scnr.nextInt();
         num2 = scnr.nextInt();
-        // TODO: printNumPattern(num1, num2);
+        printNumPattern(num1, num2);
     }
 }
